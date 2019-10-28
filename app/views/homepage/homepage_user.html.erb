@@ -1,0 +1,23 @@
+<br></br>
+<br></br>
+<br></br>
+<body class="text-center">
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Bienvenue <%=@user%> </h1>
+        <br></br>
+        <p class="lead"> Ici c'est notre super site de potins, il est chouette, non ? vous pourrez bientot crée, lire, modifier, ou encore inventer des potins sur la vie de tous les jours avec la communauté qui vous entours et ça c'est cool!</p>
+    </main>
+</body>
+<br></br>
+<body class="text-center">
+    <h2> Voici la liste des potins déja crées! : </h2>
+    <% Gossip.all.each do |gossip| %>
+        <%=  gossip.id%>
+        -
+        <%=  gossip.user.first_name%>
+        <%= gossip.user.last_name%>
+        :
+        <%=  gossip.title%>
+        <br></br>
+    <% end %>
+</body>
