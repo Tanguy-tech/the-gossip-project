@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   get '/home/:user', to: 'homepage#homepage_user'
   
-  get '/:gossip_id', to: 'gossip#show_gossip'
+  get 'home/gossip/:id', to: 'gossip#show_gossip'
 end

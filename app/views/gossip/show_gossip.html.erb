@@ -1,0 +1,16 @@
+<br></br>
+<br></br>
+<body class="text-center">
+    <h2> Voici visionnez le Potin : <%= @thegossip.title %></h2>
+    <br></br>
+    <%= @thegossip.content %>
+    <br></br>
+    <br></br>
+    Écrit par : <%= @thegossip.user.first_name %>
+    <%= @thegossip.user.last_name %>
+    <br></br>
+    le : <%= @thegossip.created_at %>
+
+
+</body>
+

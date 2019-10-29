@@ -7,17 +7,25 @@
         <br></br>
         <p class="lead"> Ici c'est notre super site de potins, il est chouette, non ? vous pourrez bientot crée, lire, modifier, ou encore inventer des potins sur la vie de tous les jours avec la communauté qui vous entours et ça c'est cool!</p>
     </main>
-</body>
-<br></br>
-<body class="text-center">
-    <h2> Voici la liste des potins déja crées! : </h2>
+    <br></br>
+    <h2> Voici la liste des potins déja crées! : </h2><br></br>
     <% Gossip.all.each do |gossip| %>
-        <%=  gossip.id%>
-        -
-        <%=  gossip.user.first_name%>
-        <%= gossip.user.last_name%>
-        :
-        <%=  gossip.title%>
-        <br></br>
+        <div class="container">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Gossip N°<%=  gossip.id%> </h4>
+                    </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><%= gossip.title %><small class="text-muted"></small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                    <li>Author Name :<%=  gossip.user.first_name%></li>
+                    <li>Author Last Name :<%= gossip.user.last_name%></li>
+                    <li>Author age :<%= gossip.user.age %></li>
+                    </ul>
+                    <a href="gossip/<%= gossip.id %>" <button type="button" class="btn btn-lg btn-block btn-outline-primary">Voir plus</button></a>
+                </div>
+            </div>
+        </div>
     <% end %>
 </body>
