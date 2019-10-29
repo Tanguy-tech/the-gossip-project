@@ -1,0 +1,23 @@
+<div class="container">
+	<table class="table table-bordered table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Auteurs</th>
+				<th scope="col">Gossips</th>
+				<th scope="col">Consulter</th>
+				<th scope="col">Editions</th>
+				<th scope="col">Suppression</th>
+			</tr>
+		</thead>
+
+		<% @thegossips.each do |gossip| %>
+			<tr>
+				<th scope="rows"><%= gossip.anonymous_author %></th>
+				<td class="col-2 text-truncate" style="max-width: 150px;"><%= gossip.content%></td>
+				<td><%= link_to 'Lire la suite...', gossip, :class => "btn btn-primary" %></td>
+				<td><%= link_to 'Editer', edit_gossip_path(gossip.id), :class => "btn btn-warning" %></td>
+				<td><%= link_to "Supprimer", gossip, method: :delete, :class => "btn btn-danger" %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

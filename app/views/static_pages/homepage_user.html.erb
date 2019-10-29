@@ -8,6 +8,8 @@
         <p class="lead"> Ici c'est notre super site de potins, il est chouette, non ? vous pourrez bientot crée, lire, modifier, ou encore inventer des potins sur la vie de tous les jours avec la communauté qui vous entours et ça c'est cool!</p>
     </main>
     <br></br>
+    <a href="gossips/new" <button type="button" class="btn btn-lg btn-block btn-outline-primary">Nouveau potin</button></a>
+    <br></br>
     <h2> Voici la liste des potins déja crées! : </h2><br></br>
     <% Gossip.all.each do |gossip| %>
         <div class="container">
@@ -23,7 +25,7 @@
                     <li>Author Last Name :<%= gossip.user.last_name%></li>
                     <li>Author age :<%= gossip.user.age %></li>
                     </ul>
-                    <a href="gossip/<%= gossip.id %>" <button type="button" class="btn btn-lg btn-block btn-outline-primary">Voir plus</button></a>
+                    <a href="gossips/<%= gossip.id %>" <button type="button" class="btn btn-lg btn-block btn-outline-primary">Voir plus</button></a>
                 </div>
             </div>
         </div>
