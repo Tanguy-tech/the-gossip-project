@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get '/team', to: 'team#show_team'
+  get '/team', to: 'static_pages#show_team'
 
-  get '/contact', to: 'getintouch#show_contact'
+  get '/contact', to: 'static_pages#show_contact'
 
-  get '/home', to: 'homepage#homepage'
+  get '/home', to: 'static_pages#homepage'
 
-  get '/home/:user', to: 'homepage#homepage_user'
+  get '/home/:user', to: 'static_pages#homepage_user'
   
-  get 'home/gossip/:id', to: 'gossip#show_gossip'
+  get 'home/gossip/:id', to: 'gossip#show'
 end
