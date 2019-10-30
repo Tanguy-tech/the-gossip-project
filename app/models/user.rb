@@ -14,4 +14,8 @@ class User < ApplicationRecord
     has_many :comments
     # 1-N associations with likes
     has_many :likes
+
+    validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "e-mail adress " }
+  	validates :first_name, presence: true
+  	validates :last_name, presence: true
 end

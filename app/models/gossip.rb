@@ -9,4 +9,8 @@ class Gossip < ApplicationRecord
     has_many :comments, as: :commentable
     # 1-N associations with likes
     has_many :likes
+
+    validates :title, presence: true
+	validates :content, presence: true
+	validates :user_id, presence: true
 end

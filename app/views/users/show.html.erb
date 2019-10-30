@@ -1,0 +1,13 @@
+<br></br>
+<br></br>
+<br></br>
+<div class="text-center">
+    Nom : <%= @user.first_name %><br>
+    Prénom : <%= @user.last_name %><br>
+    Age : <%= @user.age %><br>
+    À propos : <%= @user.description %><br>
+    Adresse e-mail : <%= @user.email %><br>
+    Ville d'origine : <%= @user.city.name %><br>
+    Code postal : <%= @user.city.zip_code %><br>
+    <a href="<%= city_path(@user.city.id) %>" class="btn btn-primary">Plus de détails sur cette Ville</a>
+</div>

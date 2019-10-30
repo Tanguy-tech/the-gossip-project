@@ -1,20 +1,19 @@
 <br></br>
 <br></br>
 <body class="text-center">
-  <%= form_for @thegossip, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-    <input type="hidden" name="authenticity_token" value="bMTmoFCOomA464dCCb1xBJQVTlmE7MezWQ+YeGHZ5kc3VlANTvaW14cq7Dnz2HHK8QPEQqvaZa6rRE1txNorZg==">
-      <p>Titre</br>
-        <%= f.text_field :title %>
-      </p>
-
-      <p>Auteur</br>
-        <%= f.text_field :user %>
-      </p>
-      
-      <p>Gossip</br>
-        <%= f.text_area :content %>
-      </p>
-      
-        <%= f.submit "Poster mon Potin" %>
-      <% end %>
+  <h2> Créer un Potin </h2>
+  <%= form_for @gossip do |f| %>
+    <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+      <div class="form-group">
+          <label>Titre du potin</label>
+          <%= f.text_field :title, class: 'form-control' %>
+      </div> 
+      <div class="form-group">
+          <label>Contenus</label>
+          <%= f.text_area :content, class: 'form-control' %>
+      </div>  
+      <div class="form-group"> 
+          <button type="submit" class="btn btn-primary">Balancer mon Potin!</button>
+      </div>      
+  <% end %>
 </body>

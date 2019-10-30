@@ -1,16 +1,22 @@
 <br></br>
 <br></br>
 <body class="text-center">
-    <h2> Voici visionnez le Potin : <%= @thegossip.title %></h2>
+    <h2> Vous visionnez le Potin : <%= @gossip.title %></h2>
     <br></br>
-    <%= @thegossip.content %>
+    <%= @gossip.content %>
     <br></br>
     <br></br>
-    Écrit par : <%= @thegossip.user.first_name %>
-    <%= @thegossip.user.last_name %>
+    Écrit par : <%= @gossip.user.first_name %>
+    <%= @gossip.user.last_name %>
     <br></br>
-    le : <%= @thegossip.created_at %>
-
-
+    Provenance : <%= @gossip.user.city.name %>
+    <br></br>
+    le : <%= @gossip.created_at %>
+    <br></br>
+    <a href="<%= user_path(@gossip.user.id) %>" class="btn btn-primary">En savoir plus sur l'auteur</a>
+    <a href="<%= city_path(@gossip.user.city.id) %>" class="btn btn-primary">Voir la Ville</a>
+    <a href="<%= gossips_path %>" class="btn btn-primary">Revenir a l'acceuil</a>
+    <br></br>
+    <a href="<%= gossip_path(@gossip.id) %>" <button type="button" class="btn btn-lg  btn-outline-danger" data-confirm="Êtes vous sur de vouloir supprimer ce potin?" data-method="DELETE">Supprimer</button></a>
 </body>
 
