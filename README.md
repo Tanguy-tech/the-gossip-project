@@ -5,20 +5,10 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.5.1
 
-* System dependencies
+Pour commencer faites un git clone puis bundle install, rails db:seed 
 
-* Configuration
+Dans ce repo vous trouverez une application ayant pour but de repertorier tous les gossips de l'ecosystem The Hacking Project! 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+vous pourrez biensur y naviguer, vous enregistrer comme membre ou encore crée modifier et supprimer des gossips a votre guise !! bonne visite ! 

@@ -26,10 +26,7 @@ class GossipsController < ApplicationController
     end
 
     def create
-        puts "=" * 50
-        puts params
-        puts "=" * 50
-        anonymous=User.new(first_name:"Anonymous", last_name:"unknown",age: 99,description: "unknown",email:"unknown#{rand(1000)}@mail.com",city_id:City.all.sample.id)
+        anonymous = User.new(first_name:"Anonymous", last_name:"unknown",age: 99,description: "unknown",email:"unknown#{rand(1000)}@mail.com", city_id:City.all.sample.id)
         anonymous.save
         @gossip = Gossip.new(title: params[:gossip][:title], content: params[:gossip][:content], user_id: anonymous.id)
         if @gossip.save

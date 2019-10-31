@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
     belongs_to :city
     # 1-N association with gossips table
     has_many :gossips
@@ -21,4 +22,5 @@ class User < ApplicationRecord
   	validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
   	validates :first_name, presence: true, format: {with: /\A[a-zA-Z0-9_]{2.15}\z/, message: 'Ne dois contenir que des caractères alphanumériques ou des _'}, uniqueness: {case_sensitive: false}
   	validates :last_name, presence: true, format: {with: /\A[a-zA-Z0-9_]{2.15}\z/, message: 'Ne dois contenir que des caractères alphanumériques ou des _'}, uniqueness: {case_sensitive: false}
+
 end

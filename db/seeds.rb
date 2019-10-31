@@ -22,6 +22,8 @@ Comment.destroy_all
   City.create!(name: Faker::Address.unique.city, zip_code: Faker::Address.unique.zip)
 end
 
+puts "Cities created"
+
 # create some users (requires cities)
 10.times do
   name = Faker::FunnyName.unique.two_word_name
@@ -33,6 +35,7 @@ end
   description: description, email: email, age: age,
   city_id: City.all.sample.id)
 end
+puts "Users created"
 
 # getting to the gossips (requires users)
 20.times do
