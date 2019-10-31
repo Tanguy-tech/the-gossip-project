@@ -1,0 +1,22 @@
+<br></br>
+<br></br>
+<h4>S'inscrire</h4>
+
+<% if @user.errors.any? %>
+    <div class="alert alert-danger">
+        <ul>
+            <%= @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= simple_form_for @user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.submit 'Inscription' %>
+<% end %>
