@@ -1,0 +1,14 @@
+<br></br>
+<br></br>
+<body class="text-center">
+    <h2> Modifier le Commentaire</h2>
+        <%= form_for @comment do |f| %>
+            <div class="form-group">
+                <label>Indiquez ici vos modifications</label>
+                <%= f.text_area :content, class: 'form-control' %>
+            </div>  
+            <div class="form-group"> 
+                <button type="submit" class="btn btn-success">Modifier</button>
+            </div>      
+        <% end %>
+</body>

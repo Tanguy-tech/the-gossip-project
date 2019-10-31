@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.text :content
       # 1-N associations with user
       t.belongs_to :user, index: true
+      t.belongs_to :gossip, index: true
       # 1-N polymorphic association with gossip and comments (and anything 'commentable')
       t.belongs_to :commentable, polymorphic: true, index: true
       t.timestamps

@@ -2,21 +2,50 @@
 <br></br>
 <body class="text-center">
     <h2> Vous visionnez le Potin : <%= @gossip.title %></h2>
-    <br></br>
-    <%= @gossip.content %>
-    <br></br>
-    <br></br>
-    Écrit par : <%= @gossip.user.first_name %>
-    <%= @gossip.user.last_name %>
-    <br></br>
-    Provenance : <%= @gossip.user.city.name %>
-    <br></br>
-    le : <%= @gossip.created_at %>
-    <br></br>
-    <a href="<%= user_path(@gossip.user.id) %>" class="btn btn-primary">En savoir plus sur l'auteur</a>
-    <a href="<%= city_path(@gossip.user.city.id) %>" class="btn btn-primary">Voir la Ville</a>
-    <a href="<%= gossips_path %>" class="btn btn-primary">Revenir a l'acceuil</a>
-    <br></br>
-    <a href="<%= gossip_path(@gossip.id) %>" <button type="button" class="btn btn-lg  btn-outline-danger" data-confirm="Êtes vous sur de vouloir supprimer ce potin?" data-method="DELETE">Supprimer</button></a>
+        <br></br>
+            <%= @gossip.content %>
+        <br></br>
+        <br></br>
+        <h4>Écrit par : <%= @gossip.user.first_name %>
+            <%= @gossip.user.last_name %></h4>
+            <h4>Provenance : <%= @gossip.user.city.name %></h4>
+            <h4>le : <%= @gossip.created_at %></h4>
+        <br></br>   
+            <a href="<%= user_path(@gossip.user.id) %>" class="btn btn-primary">En savoir plus sur l'auteur</a>
+            <a href="<%= city_path(@gossip.user.city.id) %>" class="btn btn-primary">Voir la Ville</a>
+            <a href="<%= gossips_path %>" class="btn btn-primary">Revenir a l'acceuil</a>
+        <br></br>
+            <a href="<%= gossip_path(@gossip.id) %>" <button type="button" class="btn btn-lg  btn-outline-danger" data-confirm="Êtes vous sur de vouloir supprimer ce potin?" data-method="DELETE">Supprimer</button></a>
+        <br></br>
+        <h5>Checkez les Commentaires sur ce Potins !</h5>
+        <div class="card-deck">
+            <%=Comment.all.each do |com|%>
+                <div class="card-deck col-sm-4 mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Commentaire #<%=  com.id%> </h4>
+                    </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>## : <%=  com.content%></li>
+                        <li>Crée le : <%= com.created_at%></li>
+                    </ul>
+                    <a href="<%= edit_gossip_comment_path(@gossip.id,com.id) %>" <button type="button" class="btn btn-lg  btn-outline-default">Modifier ce commentaire</button></a>
+                </div>
+            </div>
+        </div>
+        <% end %>
+        <h2> Ajouter un Commentaire </h2>
+        <%= form_for @gossip do |f| %>
+        <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+        <input type="hidden" name="gossip_id" value= @gossip.id >
+            <div class="form-group">
+                <label>Qu'as tu as dire ? </label>
+                <%= f.text_field :content, class: 'form-control' %>
+            </div>  
+            <div class="form-group"> 
+                <button type="submit" class="btn btn-primary">Envoyer mon Com'</button>
+            </div>      
+  <% end %>
 </body>
 

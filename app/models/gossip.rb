@@ -3,6 +3,7 @@ class Gossip < ApplicationRecord
     belongs_to :user
     # 1-N association with gossip_meta table
     has_many :gossip_meta
+    has_many :comments
     # N-N association with tags table via the gossip_meta table
     has_many :tags, through: :gossip_meta
     # 1-N polymorphic association with comments as commentable

@@ -1,5 +1,6 @@
 class Comment < ApplicationRecord
     # 1-N associations with user
+    belongs_to :gossip
     belongs_to :user    
     # 1-N polymorphic association with comment and gossip
     belongs_to :commentable, polymorphic: true # can be associated to anything commentable
