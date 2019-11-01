@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
         @user = User.new(user_params)
         if @user.valid?
-          render 'new'
+          redirect_to gossips_path
         else
           render 'new'
         end

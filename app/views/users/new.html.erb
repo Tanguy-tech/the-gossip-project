@@ -15,6 +15,11 @@
 <%= simple_form_for @user do |f| %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
+    <select>
+    <%= City.all.each do |city| %>
+     <option value="city"><%=city.name%></option>
+        <% end %>
+        </select>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>

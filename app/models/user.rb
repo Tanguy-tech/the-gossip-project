@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-    belongs_to :city
+    belongs_to :city, optional: true
     # 1-N association with gossips table
     has_many :gossips
     # 1-N association with sent_messages (private_messages) table
@@ -16,11 +16,11 @@ class User < ApplicationRecord
     # 1-N associations with likes
     has_many :likes
 
-    validates :password, presence: true, length: { minimum: 6 }
+    #validates :password, presence: true, length: { minimum: 6 }
 
-  	has_secure_password
+  	#has_secure_password
   	validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
-  	validates :first_name, presence: true, format: {with: /\A[a-zA-Z0-9_]{2.15}\z/, message: 'Ne dois contenir que des caractères alphanumériques ou des _'}, uniqueness: {case_sensitive: false}
-  	validates :last_name, presence: true, format: {with: /\A[a-zA-Z0-9_]{2.15}\z/, message: 'Ne dois contenir que des caractères alphanumériques ou des _'}, uniqueness: {case_sensitive: false}
+  	#validates :first_name, presence: true, format: {with: /\A[a-zA-Z0-9_]{2.15}\z/, message: 'Ne dois contenir que des caractères alphanumériques ou des _'}
+  	#validates :last_name, presence: true, format: {with: /\A[a-zA-Z0-9_]{2.15}\z/, message: 'Ne dois contenir que des caractères alphanumériques ou des _'}
 
 end
